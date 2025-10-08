@@ -14,3 +14,8 @@
 &left_encoder {
     status = "okay";
 };
+
+// 左側でエラーが出るため、無効化設定を追加
+&trackball_central_listener {
+    status = "disabled";
+};
