@@ -448,7 +448,6 @@
 &lt 2 LANGUAGE_2  &kp LS(F10)  &mt LEFT_WIN TAB  &kp LEFT_ALT    &mt LCTRL DELETE  &mt LEFT_SHIFT SPACE      &lt 2 ENTER            &lt 4 BACKSPACE                                                        &lt 6 LANGUAGE_1
             >;
 
-            sensor-bindings = <&mod_morph_encoder>;
         };
 
         DEFAULT_MAC {
@@ -459,7 +458,6 @@
 &lt 3 LANGUAGE_2  &kp LC(LEFT_COMMAND)  &mt LEFT_CONTROL ESCAPE  &kp LEFT_ALT        &mt_exit_AML_on_tap LEFT_COMMAND DELETE  &mt_exit_AML_on_tap LEFT_SHIFT SPACE      &lt 3 ENTER            &lt 5 BACKSPACE                                                            &lt 7 LANGUAGE_1
             >;
 
-            sensor-bindings = <&mod_morph_encoder_mac>;
         };
 
         NUM_WIN {
@@ -488,7 +486,6 @@
 &trans       &trans             &kp LS(LEFT_GUI)  &kp LS(LEFT_ALT)  &kp LS(LCTRL)     &trans              &trans           &trans                                                                &trans
             >;
 
-            sensor-bindings = <&mod_morph_encoder>;
         };
 
         SYMBOL_MAC {
