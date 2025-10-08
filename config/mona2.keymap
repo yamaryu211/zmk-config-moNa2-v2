@@ -157,7 +157,7 @@
 // トラックボールによるキー入力設定
 // **************************************************
 
-&trackball {
+&trackball_central {
     arrows {
         layers = <NUM_MAC NUM_WIN>;
         bindings =
