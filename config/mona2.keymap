@@ -136,6 +136,7 @@
     // ==========================================
     arrows {
         layers = <NUM_MAC NUM_WIN>;
+        input-processors = <&zip_keybind_keys>;
         bindings =
             <&kp RIGHT_ARROW>,
             <&kp LEFT_ARROW>,
@@ -149,6 +150,7 @@
 
     volume {
         layers = <KBD_SETTING>;
+        input-processors = <&zip_keybind_keys>;
         bindings =
             <&kp C_VOLUME_UP>,
             <&kp C_VOLUME_DOWN>,
