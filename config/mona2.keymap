@@ -48,115 +48,114 @@
 
         require-prior-idle-ms = <300>;
     };
+};
+// **************************************************
+// トラボ設定
+// **************************************************
+&trackball_central_listener {
+    status = "okay";
+    compatible = "zmk,input-listener";
+    device = <&trackball_central>;
 
-    // **************************************************
-    // トラボ設定
-    // **************************************************
-    trackball_central_listener: trackball_central_listener {
-        status = "okay";
-        compatible = "zmk,input-listener";
-        device = <&trackball_central>;
+    // ==========================================
+    // AML設定
+    // ==========================================
+    // input-processors = <&zip_temp_layer AML 30000>;
+    //
+    //
+    // ==========================================
+    // スクロール設定j
+    // ==========================================
+    // 自由スクロール
+    // Mac
 
-        // ==========================================
-        // AML設定
-        // ==========================================
-        // input-processors = <&zip_temp_layer AML 30000>;
-        //
-        //
-        // ==========================================
-        // スクロール設定
-        // ==========================================
-        // 自由スクロール
-        // Mac
+    scroller_mac {
+        layers = <FUNC_SCROLL_MAC>;
+        input-processors =
+            <&zip_xy_scaler 1 4>,
+            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_mac {
-            layers = <FUNC_SCROLL_MAC>;
-            input-processors =
-                <&zip_xy_scaler 1 4>,
-                <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // Windows
 
-        // Windows
+    scroller_win {
+        layers = <FUNC_SCROLL_WIN>;
+        input-processors =
+            <&zip_xy_scaler 2 3>,
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_win {
-            layers = <FUNC_SCROLL_WIN>;
-            input-processors =
-                <&zip_xy_scaler 2 3>,
-                <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // 縦横別のスクロール
+    // Mac - 縦スクロール
 
-        // 縦横別のスクロール
-        // Mac - 縦スクロール
+    scroller_mac_vertical {
+        layers = <SCROLL_VER_MAC>;
+        input-processors =
+            <&zip_y_scaler 1 4>,
+            <&zip_x_scaler 0 1>,
+            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_mac_vertical {
-            layers = <SCROLL_VER_MAC>;
-            input-processors =
-                <&zip_y_scaler 1 4>,
-                <&zip_x_scaler 0 1>,
-                <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // Mac - 横スクロール
 
-        // Mac - 横スクロール
+    scroller_mac_horizontal {
+        layers = <SCROLL_HOR_MAC>;
+        input-processors =
+            <&zip_x_scaler 1 4>,
+            <&zip_y_scaler 0 1>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_mac_horizontal {
-            layers = <SCROLL_HOR_MAC>;
-            input-processors =
-                <&zip_x_scaler 1 4>,
-                <&zip_y_scaler 0 1>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // Windows - 縦スクロール
 
-        // Windows - 縦スクロール
+    scroller_win_vertical {
+        layers = <SCROLL_VER_WIN>;
+        input-processors =
+            <&zip_y_scaler 1 2>,
+            <&zip_x_scaler 0 1>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_win_vertical {
-            layers = <SCROLL_VER_WIN>;
-            input-processors =
-                <&zip_y_scaler 1 2>,
-                <&zip_x_scaler 0 1>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // Windows - 横スクロール
 
-        // Windows - 横スクロール
+    scroller_win_horizontal {
+        layers = <SCROLL_HOR_WIN>;
+        input-processors =
+            <&zip_x_scaler 1 2>,
+            <&zip_y_scaler 0 1>,
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 
-        scroller_win_horizontal {
-            layers = <SCROLL_HOR_WIN>;
-            input-processors =
-                <&zip_x_scaler 1 2>,
-                <&zip_y_scaler 0 1>,
-                <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-                <&zip_xy_to_scroll_mapper>;
-        };
+    // ==========================================
+    // トラックボールによるキー入力設定
+    // ==========================================
+    arrows {
+        layers = <NUM_MAC NUM_WIN>;
+        bindings =
+            <&kp RIGHT_ARROW>,
+            <&kp LEFT_ARROW>,
+            <&kp UP_ARROW>,
+            <&kp DOWN_ARROW>;
 
-        // ==========================================
-        // トラックボールによるキー入力設定
-        // ==========================================
-        arrows {
-            layers = <NUM_MAC NUM_WIN>;
-            bindings =
-                <&kp RIGHT_ARROW>,
-                <&kp LEFT_ARROW>,
-                <&kp UP_ARROW>,
-                <&kp DOWN_ARROW>;
-    
-            tick = <10>;
-            wait-ms = <5>;
-            tap-ms = <5>;
-        };
-    
-        volume {
-            layers = <KBD_SETTING>;
-            bindings =
-                <&kp C_VOLUME_UP>,
-                <&kp C_VOLUME_DOWN>,
-                <&kp C_BRIGHTNESS_INC>,
-                <&kp C_BRIGHTNESS_DEC>;
-    
-            wait-ms = <5>;
-            tap-ms = <5>;
-        };
+        tick = <10>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+    };
+
+    volume {
+        layers = <KBD_SETTING>;
+        bindings =
+            <&kp C_VOLUME_UP>,
+            <&kp C_VOLUME_DOWN>,
+            <&kp C_BRIGHTNESS_INC>,
+            <&kp C_BRIGHTNESS_DEC>;
+
+        wait-ms = <5>;
+        tap-ms = <5>;
     };
 };
 
