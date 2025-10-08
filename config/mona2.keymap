@@ -7,7 +7,9 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#ifndef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+#endif
 
 // レイヤーの設定
 #define DEFAULT_WIN 0
