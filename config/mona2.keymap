@@ -55,7 +55,7 @@
 &trackball_central_listener {
     status = "okay";
     compatible = "zmk,input-listener";
-    device = <&trackball_central>;
+    device = <&trackball_central_listener>;
 
     // ==========================================
     // AML設定
