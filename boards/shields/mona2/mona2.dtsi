@@ -115,3 +115,13 @@
     };
 
 };
+
+// 左側のビルド時のエラー防止
+&spi0 {
+    status = "disabled";
+
+    trackball_central: trackball_central@0 {
+        status = "disabled";
+        reg = <0>;
+    };
+};
