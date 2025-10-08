@@ -129,6 +129,34 @@
                 <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
                 <&zip_xy_to_scroll_mapper>;
         };
+
+        // ==========================================
+        // トラックボールによるキー入力設定
+        // ==========================================
+        arrows {
+            layers = <NUM_MAC NUM_WIN>;
+            bindings =
+                <&kp RIGHT_ARROW>,
+                <&kp LEFT_ARROW>,
+                <&kp UP_ARROW>,
+                <&kp DOWN_ARROW>;
+    
+            tick = <10>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+        };
+    
+        volume {
+            layers = <KBD_SETTING>;
+            bindings =
+                <&kp C_VOLUME_UP>,
+                <&kp C_VOLUME_DOWN>,
+                <&kp C_BRIGHTNESS_INC>,
+                <&kp C_BRIGHTNESS_DEC>;
+    
+            wait-ms = <5>;
+            tap-ms = <5>;
+        };
     };
 };
 
@@ -152,37 +180,6 @@
     trigger-period-ms = <3>;
     time-to-max-speed-ms = <200>;
     acceleration-exponent = <0>;
-};
-
-// **************************************************
-// トラックボールによるキー入力設定
-// **************************************************
-
-&trackball_central {
-    arrows {
-        layers = <NUM_MAC NUM_WIN>;
-        bindings =
-            <&kp RIGHT_ARROW>,
-            <&kp LEFT_ARROW>,
-            <&kp UP_ARROW>,
-            <&kp DOWN_ARROW>;
-
-        tick = <10>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-    };
-
-    volume {
-        layers = <KBD_SETTING>;
-        bindings =
-            <&kp C_VOLUME_UP>,
-            <&kp C_VOLUME_DOWN>,
-            <&kp C_BRIGHTNESS_INC>,
-            <&kp C_BRIGHTNESS_DEC>;
-
-        wait-ms = <5>;
-        tap-ms = <5>;
-    };
 };
 
 // **************************************************
