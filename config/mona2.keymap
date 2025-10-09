@@ -57,6 +57,7 @@
 // マウスジェスチャーの挙動設定
 // **************************************************
 &zip_mouse_gesture {
+    #input-processor-cells = <0>; 
     stroke-size = <200>; // Optional (default: 200)
     enable-eager-mode; // Optional, but recommended
 
@@ -87,7 +88,7 @@
 &trackball_central_listener {
     status = "okay";
     device = <&trackball_central>;
-    input-processors = <&mouse_gesture>;
+    input-processors = <&zip_mouse_gesture>;
 
     // ==========================================
     // AML設定
