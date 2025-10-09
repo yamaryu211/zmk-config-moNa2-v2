@@ -52,6 +52,35 @@
         require-prior-idle-ms = <300>;
     };
 };
+
+// **************************************************
+// マウスジェスチャーの挙動設定
+// **************************************************
+&zip_mouse_gesture {
+    stroke-size = <200>; // Optional (default: 200)
+    enable-eager-mode; // Optional, but recommended
+
+    brightness_up {
+        pattern = <GESTURE_UP>;
+        bindings = <&kp C_BRIGHTNESS_INC>;
+    };
+
+    brightness_down {
+        pattern = <GESTURE_DOWN>;
+        bindings = <&kp C_BRIGHTNESS_DEC>;
+    };
+
+    volume_up {
+        pattern = <GESTURE_RIGHT>;
+        bindings = <&kp C_VOLUME_UP>;
+    };
+
+    volume_down {
+        pattern = <GESTURE_LEFT>;
+        bindings = <&kp C_VOLUME_DOWN>;
+    };
+};
+
 // **************************************************
 // トラボ設定
 // **************************************************
@@ -142,35 +171,6 @@
         input-processors = <&zip_mouse_gesture>;
     };
 };
-
-// **************************************************
-// マウスジェスチャーの挙動設定
-// **************************************************
-&zip_mouse_gesture {
-    stroke-size = <200>; // Optional (default: 200)
-    enable-eager-mode; // Optional, but recommended
-
-    brightness_up {
-        pattern = <GESTURE_UP>;
-        bindings = <&kp C_BRIGHTNESS_INC>;
-    };
-
-    brightness_down {
-        pattern = <GESTURE_DOWN>;
-        bindings = <&kp C_BRIGHTNESS_DEC>;
-    };
-
-    volume_up {
-        pattern = <GESTURE_RIGHT>;
-        bindings = <&kp C_VOLUME_UP>;
-    };
-
-    volume_down {
-        pattern = <GESTURE_LEFT>;
-        bindings = <&kp C_VOLUME_DOWN>;
-    };
-};
-
 
 // **************************************************
 // マウスカーソルの挙動設定
