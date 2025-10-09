@@ -119,6 +119,12 @@
             <&zip_xy_to_scroll_mapper>;
     };
 
+    // マウスジェスチャー
+    volume_brightness_gesture {
+        layers = <KBD_SETTING>;
+        input-processors = <&zip_mouse_gesture>;
+    };
+
     // 縦横別のスクロール
     // Mac - 縦スクロール
 
@@ -163,12 +169,6 @@
             <&zip_y_scaler 0 1>,
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
             <&zip_xy_to_scroll_mapper>;
-    };
-
-    // マウスジェスチャー
-    volume_brightness_gesture {
-        layers = <KBD_SETTING>;
-        input-processors = <&zip_mouse_gesture>;
     };
 };
 
