@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <mouse-gesture.dtsi> // <-- ジェスチャーモジュール
 
 #ifndef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
@@ -65,7 +66,7 @@
     //
     //
     // ==========================================
-    // スクロール設定j
+    // スクロール設定
     // ==========================================
     // 自由スクロール
     // Mac
@@ -78,6 +79,7 @@
             <&zip_xy_to_scroll_mapper>;
     };
 
+    // 自由スクロール
     // Windows
 
     scroller_win {
@@ -100,6 +102,7 @@
             <&zip_xy_to_scroll_mapper>;
     };
 
+    // 縦横別のスクロール
     // Mac - 横スクロール
 
     scroller_mac_horizontal {
@@ -110,6 +113,7 @@
             <&zip_xy_to_scroll_mapper>;
     };
 
+    // 縦横別のスクロール
     // Windows - 縦スクロール
 
     scroller_win_vertical {
@@ -120,6 +124,7 @@
             <&zip_xy_to_scroll_mapper>;
     };
 
+    // 縦横別のスクロール
     // Windows - 横スクロール
 
     scroller_win_horizontal {
@@ -130,7 +135,42 @@
             <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
             <&zip_xy_to_scroll_mapper>;
     };
+
+    // マウスジェスチャー
+    volume_brightness_gesture {
+        layers = <KBD_SETTING>;
+        input-processors = <&zip_mouse_gesture>;
+    };
 };
+
+// **************************************************
+// マウスジェスチャーの挙動設定
+// **************************************************
+&zip_mouse_gesture {
+    stroke-size = <200>; // Optional (default: 200)
+    enable-eager-mode; // Optional, but recommended
+
+    brightness_up {
+        pattern = <GESTURE_UP>;
+        bindings = <&kp C_BRIGHTNESS_INC>;
+    };
+
+    brightness_down {
+        pattern = <GESTURE_DOWN>;
+        bindings = <&kp C_BRIGHTNESS_DEC>;
+    };
+
+    volume_up {
+        pattern = <GESTURE_RIGHT>;
+        bindings = <&kp C_VOLUME_UP>;
+    };
+
+    volume_down {
+        pattern = <GESTURE_LEFT>;
+        bindings = <&kp C_VOLUME_DOWN>;
+    };
+};
+
 
 // **************************************************
 // マウスカーソルの挙動設定
