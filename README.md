@@ -1,3 +1,7 @@
+# キーマップ
+<img src="keymap-drawer/mona2.svg" >
+
+# COROPIT版の設定
 COROPITを使用する方は以下のようにコードを編集してください。
 
 mona2_r.overlay
